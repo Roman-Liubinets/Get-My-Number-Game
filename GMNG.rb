@@ -9,13 +9,14 @@ puts "Welcome #{input}!"
 # Store a random number for the player guess.
 puts "I've got a random number between 1 and 100" "Can you guess it?"
 target = rand(100) + 1
-
+guessed_it = false
 #Track how many guesses the player has made.
 num_guesses = 0
+until num_guesses == 10 || guessed_it
 puts "You've got #{10 - num_guesses} guesses left."
 print "Make a guess: "
 guess = gets.to_i
-
+num_guesses +=1
 # Compare the guesses to the target.
 # Print the appropriate message.
 if guess < target
@@ -25,7 +26,7 @@ if guess < target
   elsif guess == target
     puts "Good job, #{input}!" "You guessed my number in #{num_guesses} guesses !"
   end
-
+end
   #If player ran out of turns, tell them what the number was.
   if not guessed_it
     puts "Sorry. You didn't get my number. (It was #{target}.)"
